@@ -1,0 +1,106 @@
+`timescale 1ns/1ps
+
+`define HALF_CLOCK_PERIOD   10
+`define RESET_PERIOD        100
+`define DELAY               200
+`define SIM_DURATION        5000
+
+module sha_1_tb();
+
+    // Testbench parameters
+    logic tb_local_clock = 0;				// Testbench clock
+	 logic tb_local_reset_n = 0;			// Testbench reset
+	 logic tb_q_start;						// Testbench start signal
+    logic tb_q_done;							// Testbench done signal
+    logic [511:0] tb_data;					// Testbench data
+    logic [159:0] tb_previous_hash;		// Testbench previous hash
+    logic [159:0] tb_q;						// Testbench output
+	 logic [1:0] tb_q_state; 				// Testbench state display
+
+    parameter INPUT_STRING = "FSOC24/25 is fun!";
+
+    // clock signal generation
+	 initial 
+		begin : clock_generation_process
+        tb_local_clock = 0;
+        forever 
+				begin
+					#`HALF_CLOCK_PERIOD tb_local_clock = ~tb_local_clock;
+				end
+		end
+    
+    // Start of the simulation
+	 initial 
+		begin : reset_generation_process
+        $display ("Simulation starts ...");
+        // reset assertion ... 
+        #`RESET_PERIOD tb_local_reset_n = 1'b1;
+        tb_data = 0;
+        tb_previous_hash = 160'h67452301EFCDAB8998BADCFE10325476C3D2E1F0; // Initial SHA-1 hash values
+        #200 tb_data = string_to_512bit(INPUT_STRING);
+        #`SIM_DURATION
+        $display ("Simulation done ...");
+        $stop();
+		end
+
+	// Helper function: Convert string to 512-bit block
+	function [511:0] string_to_512bit(input string str);
+		integer i;
+		reg [7:0] padded_message [0:63];			// register to store the padded message 64 words 8bits (64*8=512)
+		reg [63:0] length_bits; 					// 64-bit for correct length representation
+		reg [511:0] result;							// register to store the final padded message
+
+		begin
+        // Zero-initialize padded message
+        for (i = 0; i < 64; i++) 
+				padded_message[i] = 8'h00;
+        // Copy the string into the padded message
+        for (i = 0; i < str.len(); i++) 
+				padded_message[i] = str[i];
+        // Append the '1' bit (0x80)
+        padded_message[str.len()] = 8'h80;
+        // Append the message length (in bits) in big-endian format to the last 64 bits
+        length_bits = str.len() * 8; 				// Convert string length to bits
+        padded_message[56] = length_bits[63:56];
+        padded_message[57] = length_bits[55:48];
+        padded_message[58] = length_bits[47:40];
+        padded_message[59] = length_bits[39:32];
+        padded_message[60] = length_bits[31:24];
+        padded_message[61] = length_bits[23:16];
+        padded_message[62] = length_bits[15:8];
+        padded_message[63] = length_bits[7:0];
+        // Convert padded message into 512-bit word
+        for (i = 0; i < 64; i++)
+				begin
+					result[511 - i * 8 -: 8] = padded_message[i];
+				end
+        // Print the final 512-bit block for verification
+        $display("Final 512-bit block: %h", result);
+        return result;
+		end
+	endfunction
+
+	 // start the counter to trigger the SHA-1 Calculation
+	logic [7:0] counter = 0;
+	always_ff@(posedge tb_local_clock)
+		counter <= counter + 1;
+	 
+	 // Assert the start 
+	 logic tb_start; 
+	 assign tb_start = (counter >  128) ? 1'b1 : 1'b0;
+	 
+	     // Instantiate the DUT (Device Under Test)
+    sha_1 dut (
+        .clk(tb_local_clock),					// Give the tb_local_clock to module
+        .reset_n(tb_local_reset_n),			// Give the tb_local_reset_n to module
+        .start(tb_start),						// Give the tb_start signal to module
+		  .q_start(tb_q_start),					// tb_q_start is taken from module based on edge detection
+		  .q_done(tb_q_done),					// tb_q_done is taken from module based on edge detection after computation
+        .data(tb_data),							// data is given to the module
+        .previous_hash(tb_previous_hash),	// Optional 
+        .q(tb_q),									// Final output of HASH is taken from the module
+        .done(tb_q_done),						// tb_q_done is taken from after computation
+		  .q_state(tb_q_state)					// tb_q_state is taken from the module
+    );
+	 
+endmodule

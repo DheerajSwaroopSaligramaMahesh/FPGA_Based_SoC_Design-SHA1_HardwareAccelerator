@@ -1,0 +1,499 @@
+Analysis & Synthesis report for SHA1_Algorithm
+Thu May 08 18:15:27 2025
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
+ 14. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu May 08 18:15:27 2025       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; SHA1_Algorithm                              ;
+; Top-level Entity Name           ; sha_1                                       ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 3078                                        ;
+; Total pins                      ; 840                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEBA6U23I7       ;                    ;
+; Top-level entity name                                                           ; sha_1              ; SHA1_Algorithm     ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; sha_1.sv                         ; yes             ; User SystemVerilog HDL File  ; D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 3471      ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 5923      ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 810       ;
+;     -- 5 input functions                    ; 2668      ;
+;     -- 4 input functions                    ; 2182      ;
+;     -- <=3 input functions                  ; 263       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 3078      ;
+;                                             ;           ;
+; I/O pins                                    ; 840       ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 3078      ;
+; Total fan-out                               ; 35972     ;
+; Average fan-out                             ; 3.37      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |sha_1                     ; 5923 (5923)         ; 3078 (3078)               ; 0                 ; 0          ; 840  ; 0            ; |sha_1              ; sha_1       ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; done~reg0                             ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 1 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 3078  ;
+; Number of registers using Synchronous Clear  ; 246   ;
+; Number of registers using Synchronous Load   ; 240   ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 432   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 160 bits  ; 320 LEs       ; 0 LEs                ; 320 LEs                ; Yes        ; |sha_1|q[77]~reg0          ;
+; 4:1                ; 80 bits   ; 160 LEs       ; 80 LEs               ; 80 LEs                 ; Yes        ; |sha_1|Hash[3][14]         ;
+; 4:1                ; 160 bits  ; 320 LEs       ; 0 LEs                ; 320 LEs                ; Yes        ; |sha_1|C[31]               ;
+; 256:1              ; 32 bits   ; 5440 LEs      ; 1760 LEs             ; 3680 LEs               ; No         ; |sha_1|Mux22               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 3078                        ;
+;     ENA               ; 32                          ;
+;     ENA SCLR          ; 160                         ;
+;     ENA SLD           ; 240                         ;
+;     SCLR              ; 86                          ;
+;     plain             ; 2560                        ;
+; arriav_lcell_comb     ; 5924                        ;
+;     arith             ; 192                         ;
+;         1 data inputs ; 32                          ;
+;         2 data inputs ; 160                         ;
+;     normal            ; 5668                        ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 9                           ;
+;         4 data inputs ; 2177                        ;
+;         5 data inputs ; 2668                        ;
+;         6 data inputs ; 810                         ;
+;     shared            ; 64                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 55                          ;
+;         4 data inputs ; 5                           ;
+; boundary_port         ; 842                         ;
+;                       ;                             ;
+; Max LUT depth         ; 8.10                        ;
+; Average LUT depth     ; 3.65                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:07     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Thu May 08 18:15:10 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SHA1_Algorithm -c SHA1_Algorithm
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file sha_1.sv
+    Info (12022): Found design unit 1: state_machine_definitions (SystemVerilog) File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 2
+    Info (12023): Found entity 1: sha_1 File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file sha_1_tb.sv
+    Info (12023): Found entity 1: sha_1_tb File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1_tb.sv Line: 8
+Info (12127): Elaborating entity "sha_1" for the top level hierarchy
+Warning (10175): Verilog HDL warning at sha_1.sv(186): ignoring unsupported system task File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 186
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "done" is stuck at VCC File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 17
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/output_files/SHA1_Algorithm.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 160 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "previous_hash[0]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[1]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[2]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[3]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[4]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[5]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[6]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[7]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[8]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[9]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[10]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[11]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[12]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[13]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[14]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[15]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[16]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[17]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[18]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[19]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[20]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[21]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[22]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[23]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[24]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[25]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[26]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[27]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[28]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[29]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[30]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[31]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[32]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[33]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[34]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[35]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[36]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[37]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[38]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[39]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[40]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[41]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[42]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[43]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[44]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[45]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[46]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[47]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[48]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[49]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[50]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[51]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[52]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[53]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[54]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[55]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[56]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[57]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[58]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[59]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[60]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[61]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[62]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[63]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[64]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[65]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[66]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[67]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[68]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[69]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[70]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[71]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[72]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[73]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[74]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[75]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[76]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[77]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[78]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[79]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[80]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[81]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[82]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[83]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[84]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[85]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[86]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[87]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[88]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[89]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[90]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[91]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[92]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[93]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[94]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[95]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[96]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[97]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[98]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[99]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[100]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[101]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[102]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[103]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[104]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[105]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[106]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[107]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[108]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[109]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[110]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[111]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[112]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[113]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[114]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[115]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[116]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[117]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[118]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[119]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[120]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[121]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[122]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[123]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[124]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[125]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[126]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[127]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[128]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[129]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[130]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[131]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[132]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[133]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[134]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[135]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[136]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[137]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[138]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[139]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[140]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[141]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[142]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[143]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[144]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[145]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[146]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[147]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[148]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[149]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[150]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[151]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[152]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[153]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[154]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[155]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[156]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[157]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[158]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+    Warning (15610): No output dependent on input pin "previous_hash[159]" File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 15
+Info (21057): Implemented 7135 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 675 input pins
+    Info (21059): Implemented 165 output pins
+    Info (21061): Implemented 6295 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 165 warnings
+    Info: Peak virtual memory: 4876 megabytes
+    Info: Processing ended: Thu May 08 18:15:27 2025
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:12
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/output_files/SHA1_Algorithm.map.smsg.
+
+

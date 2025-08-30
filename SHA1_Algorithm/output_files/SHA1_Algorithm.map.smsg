@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at sha_1.sv(80): always construct contains both blocking and non-blocking assignments File: D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv Line: 80

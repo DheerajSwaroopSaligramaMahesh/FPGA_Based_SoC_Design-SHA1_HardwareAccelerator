@@ -1,0 +1,85 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/simulation/modelsim
+vsha_1
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+DXx4 work 25 state_machine_definitions 0 22 a9oQ2H^7z_?UhGDod19LX2
+Z2 !s110 1746721012
+!i10b 1
+!s100 ECD1DFaM<5UVf6BVQhXC73
+IWPf;H;C<Dk`^;G9a3Y88I1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 sha_1_sv_unit
+S1
+R0
+Z4 w1737832798
+Z5 8D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv
+Z6 FD:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv
+L0 8
+Z7 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z8 !s108 1746721012.000000
+Z9 !s107 D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv|
+Z10 !s90 -reportprogress|300|-sv|-work|work|+incdir+D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm|D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1.sv|
+!i113 1
+Z11 o-sv -work work
+Z12 !s92 -sv -work work +incdir+D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm
+Z13 tCvgOpt 0
+vsha_1_tb
+R1
+R2
+!i10b 1
+!s100 ]ZS``E46CjPOAl1Eoo4532
+I_]>4VZCVi;^`aPlPOE:7=1
+R3
+!s105 sha_1_tb_sv_unit
+S1
+R0
+w1746720895
+8D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1_tb.sv
+FD:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1_tb.sv
+L0 8
+R7
+r1
+!s85 0
+31
+R8
+!s107 D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1_tb.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm|D:/MS/HDA/Embedded/FSoC/Assignments/Lab3Assignment/SHA1_Algorithm/sha_1_tb.sv|
+!i113 1
+R11
+R12
+R13
+Xstate_machine_definitions
+R1
+R2
+!i10b 1
+!s100 K]zP>>J4P7JaP5]lkBeCT0
+Ia9oQ2H^7z_?UhGDod19LX2
+Va9oQ2H^7z_?UhGDod19LX2
+S1
+R0
+R4
+R5
+R6
+L0 2
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+R13
